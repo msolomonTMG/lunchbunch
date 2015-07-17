@@ -37,16 +37,16 @@ class MyHipbot < Hipbot::Bot
   desc 'lunch'
   on(/(lunchbunch)/) do
     #reply ('hows this')
-    data = get_recommendation
-    #name = data["name"]
-    reply (data)
+    data = FACTUAL.table("places-us").search("coffee").geo("$circle" => {"$center" => [40.7242800, -73.9973540], "$meters" => 500}).include_count(true).rows 
+    name = data[0]["name"]
+    reply ("#{name}")
   end
 
   def get_recommendation
     return "Recommendation"
     #random = Random.rand(0...10)
     #random = 0
-    #ata = FACTUAL.table("places-us").search("coffee").geo("$circle" => {"$center" => [40.7242800, -73.9973540], "$meters" => 500}).include_count(true).rows 
+    data = FACTUAL.table("places-us").search("coffee").geo("$circle" => {"$center" => [40.7242800, -73.9973540], "$meters" => 500}).include_count(true).rows 
     #logger.info(data[random]["name"])
     #return data[random]
   end
