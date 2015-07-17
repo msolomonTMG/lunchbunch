@@ -13,8 +13,6 @@ configure do
   Sinatra::Logentries.token = ENV['SINATRA_LOGENTRIES_TOKEN']
 end
 
-FACTUAL = Factual.new(ENV['FACTUAL_API_KEY'], ENV['FACTUAL_API_SECRET'])
-
 class MyHipbot < Hipbot::Bot
   configure do |c|
     c.jid       = ENV['HIPBOT_JID']
@@ -40,12 +38,12 @@ class MyHipbot < Hipbot::Bot
   end
 
   def get_recommendation
-    data = FACTUAL.table("places-us").search("coffee").geo("$circle" => {"$center" => [40.7242800, -73.9973540], "$meters" => 500}).rows 
+    factual = Factual.new(ENV['FACTUAL_API_KEY'], ENV['FACTUAL_API_SECRET'])
+    data = factual.table("places-us").search("coffee").geo("$circle" => {"$center" => [40.7242800, -73.9973540], "$meters" => 500}).rows 
     return data
   end
 
 end
-
 
 $stdout.sync = true
 
