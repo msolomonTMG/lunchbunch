@@ -43,6 +43,7 @@ class MyHipbot < Hipbot::Bot
   def get_recommendation
     random = Random.rand(0...10)
     data = FACTUAL.table("places-us").search("coffee").geo("$circle" => {"$center" => [40.7242800, -73.9973540], "$meters" => 500}).include_count(true).rows 
+    logger.info(data[random]["name"])
     return data[random]
   end
 
