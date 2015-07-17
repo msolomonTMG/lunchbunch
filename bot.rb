@@ -15,6 +15,8 @@ end
 
 FACTUAL = Factual.new(ENV['FACTUAL_API_KEY'], ENV['FACTUAL_API_SECRET'])
 
+logger.info("Informational Message")
+
 class MyHipbot < Hipbot::Bot
   configure do |c|
     c.jid       = ENV['HIPBOT_JID']
