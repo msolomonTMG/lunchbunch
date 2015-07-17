@@ -35,7 +35,8 @@ class MyHipbot < Hipbot::Bot
   on(/(lunchbunch)/) do
     #reply ('hows this')
     data = get_recommendation
-    reply (data["name"])
+    name = data["name"]
+    reply ("#{name}")
   end
 
   def get_recommendation
