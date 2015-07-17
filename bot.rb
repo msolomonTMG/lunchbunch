@@ -35,11 +35,17 @@ class MyHipbot < Hipbot::Bot
   desc 'lunch'
   on(/(lunchbunch)/) do
     reply ('hows this')
-    data = factual.table("places-us").search("coffee").geo("$circle" => {"$center" => [40.7242800, -73.9973540], "$meters" => 500}).rows 
+    date = get_recommendation
     reply (data)
   end
 
+  def get_recommendation
+    data = factual.table("places-us").search("coffee").geo("$circle" => {"$center" => [40.7242800, -73.9973540], "$meters" => 500}).rows 
+    return data
+  end
+
 end
+
 
 $stdout.sync = true
 
