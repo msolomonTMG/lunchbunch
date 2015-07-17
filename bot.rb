@@ -1,9 +1,11 @@
 require 'hipbot'
 require 'hipbot-plugins/human'
-require 'hipbot-plugins/meme_generator'
+require 'factual'
 # require 'hipbot-plugins/github'
 # require 'hipbot-plugins/google'
 # check out more plugins on https://github.com/netguru/hipbot-plugins
+
+factual = Factual.new(ENV['FACTUAL_API_KEY'], ENV['FACTUAL_API_SECRET'])
 
 class MyHipbot < Hipbot::Bot
   configure do |c|
@@ -23,8 +25,10 @@ class MyHipbot < Hipbot::Bot
   end
 
   desc 'lunch'
-  on(/(lunchbunch)/) do 
-    reply ('here is what we should do for lunch')
+  on(/(lunchbunch)/) do
+    reply ('hows this')
+    data = factual.table("places-us").search("coffee").geo("$circle" => {"$center" => [40.7242800, -73.9973540], "$meters" => 500}).rows 
+    reply (data)
   end
 
 end
