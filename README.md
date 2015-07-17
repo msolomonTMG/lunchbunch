@@ -1,4 +1,4 @@
-# hipbot-example
+# Lunch Bunch!
 
 [![Code Climate](https://codeclimate.com/github/netguru/hipbot-example.png)](https://codeclimate.com/github/netguru/hipbot-example)
 
