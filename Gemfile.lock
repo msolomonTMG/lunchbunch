@@ -43,7 +43,6 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (0.6.9)
     json (1.8.1)
-    le (2.6.2)
     mini_portile (0.5.3)
     minitest (4.7.5)
     multi_json (1.8.4)
@@ -51,8 +50,6 @@ GEM
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     oauth (0.4.7)
-    sinatra-logentries (0.0.2)
-      le (>= 2.1.6)
     thread_safe (0.2.0)
       atomic (>= 1.1.7, < 2)
     tzinfo (0.3.38)
@@ -69,7 +66,6 @@ DEPENDENCIES
   factual-api
   hipbot
   hipbot-plugins (= 1.0.2)
-  sinatra-logentries
 
 BUNDLED WITH
    1.10.5
