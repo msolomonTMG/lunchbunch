@@ -21,6 +21,12 @@ class MyHipbot < Hipbot::Bot
   on(/my name is (\w+) (\w+)/) do |first_name, last_name|
     reply("nice to meet you, #{first_name} #{last_name}!")
   end
+
+  desc 'lunch'
+  on(/(lunchbunch)/) do 
+    reply ('here is what we should do for lunch')
+  end
+
 end
 
 $stdout.sync = true
