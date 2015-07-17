@@ -2,10 +2,16 @@ require 'hipbot'
 require 'hipbot-plugins/human'
 require 'factual'
 require 'sinatra'
+require 'sinatra-logentries'
 
 # require 'hipbot-plugins/github'
 # require 'hipbot-plugins/google'
 # check out more plugins on https://github.com/netguru/hipbot-plugins
+set :environment, :production
+
+configure do
+  Sinatra::Logentries.token = ENV['SINATRA_LOGENTRIES_TOKEN']
+end
 
 factual = Factual.new(ENV['FACTUAL_API_KEY'], ENV['FACTUAL_API_SECRET'])
 
