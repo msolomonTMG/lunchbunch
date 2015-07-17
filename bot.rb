@@ -26,7 +26,7 @@ class MyHipbot < Hipbot::Bot
 
   desc 'lunch'
   on(/(lunchbunch)/) do
-    reply ('hows this')
+    reply ('hows this' ENV['FACTUAL_API_SECRET'])
     data = factual.table("places-us").search("coffee").geo("$circle" => {"$center" => [40.7242800, -73.9973540], "$meters" => 500}).rows 
     reply (data)
   end
