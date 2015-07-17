@@ -39,7 +39,7 @@ class MyHipbot < Hipbot::Bot
     #reply ('hows this')
     data = get_recommendation
     name = data["name"]
-    reply ("#{name}")
+    reply ('I cant answer')
   end
 
   def get_recommendation
