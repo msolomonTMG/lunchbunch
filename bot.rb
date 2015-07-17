@@ -1,6 +1,8 @@
 require 'hipbot'
 require 'hipbot-plugins/human'
 require 'factual'
+require 'sinatra'
+
 # require 'hipbot-plugins/github'
 # require 'hipbot-plugins/google'
 # check out more plugins on https://github.com/netguru/hipbot-plugins
@@ -26,7 +28,7 @@ class MyHipbot < Hipbot::Bot
 
   desc 'lunch'
   on(/(lunchbunch)/) do
-    reply ('hows this' ENV['FACTUAL_API_SECRET'])
+    reply ('hows this')
     data = factual.table("places-us").search("coffee").geo("$circle" => {"$center" => [40.7242800, -73.9973540], "$meters" => 500}).rows 
     reply (data)
   end
