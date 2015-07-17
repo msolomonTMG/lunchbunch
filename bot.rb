@@ -1,5 +1,6 @@
 require 'hipbot'
 require 'hipbot-plugins/human'
+require 'hipbot-plugins/meme_generator'
 # require 'hipbot-plugins/github'
 # require 'hipbot-plugins/google'
 # check out more plugins on https://github.com/netguru/hipbot-plugins
